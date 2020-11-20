@@ -4,3 +4,4 @@ pandas
 seaborn
 scikit-learn
 tensorflow>=2.1.0
+jupyter
