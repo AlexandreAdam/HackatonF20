@@ -10,4 +10,6 @@ source $SLURM_TMPDIR/env/bin/activate
 pip install --no-index --upgrade pip
 
 pip install --no-index -r requirement_beluga.txt
+module load cuda cudnn
 python bert_features.py
+
