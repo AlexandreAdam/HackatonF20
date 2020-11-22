@@ -1,19 +1,8 @@
-from transformers import pipeline
 from transformers import BertTokenizer, TFBertModel
 import tensorflow as tf
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-from sklearn.preprocessing import LabelBinarizer
-from sklearn.svm import SVC
-from sklearn.ensemble import GradientBoostingClassifier
-import seaborn as sns
 import os
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import f1_score
-from sklearn.model_selection import train_test_split
-# import collections.abc
-import gc
 import h5py
 
 
