@@ -37,6 +37,8 @@ def main():
     D_test["feature1"][D_test["feature1"].isna()] = -1
     D_train["feature1"][D_train["feature1"].isna()] = -1
 
+    # Body
+    D_train["Body"]
 
 if __name__ == "__main__":
     main()
