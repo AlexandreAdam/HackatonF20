@@ -15,7 +15,7 @@ def model():
     x = tf.keras.layers.Dense(2, activation=tf.keras.activations.sigmoid)(x)
     return tf.keras.Model(inputs=[input1, input2], outputs=x)
 
-datapath = "../data/"
+datapath = "data/"
 D_train= pd.read_csv(os.path.join(datapath, "challenge3/train.csv"))
 D_test = pd.read_csv(os.path.join(datapath, "challenge3/submission.csv"))
 
