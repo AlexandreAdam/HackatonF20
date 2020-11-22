@@ -1,4 +1,3 @@
-
 #!/bin/bash
 #SBATCH --account=def-lplevass
 #SBATCH --gres=gpu:2              # Number of GPU(s) per node
