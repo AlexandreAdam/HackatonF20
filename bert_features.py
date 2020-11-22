@@ -27,14 +27,14 @@ bert = TFBertModel.from_pretrained('bert-base-uncased', return_dict=True)
 X = D_train["Body"][~D_train["Body"].isna()].to_list()
 batch = len(X)//1000
 for t in range(len(X)//batch):
-    with h5py.File(f'../data/challenge3/body_train/batch_{t:04d}.hdf5', 'w') as f:
+    with h5py.File(f'data/challenge3/body_train/batch_{t:04d}.hdf5', 'w') as f:
         dset = f.create_dataset("Dataset", (batch, 768))
         _tokens = tokenizer(X[t * batch: (t + 1) * batch], padding=True, truncation=True, return_tensors="tf")
         dset[t * batch: (t + 1) * batch, :] = bert(_tokens)[1]
 
 X = D_train["Post"].to_list()
 batch = len(X)//10000
-with h5py.File('../data/challenge3/post_train_features.hdf5', 'w') as f:
+with h5py.File('data/challenge3/post_train_features.hdf5', 'w') as f:
     dset = f.create_dataset("Dataset", (len(X), 768))
     for t in range(len(X)//batch):
         _tokens = tokenizer(X[t * batch: (t + 1) * batch], padding=True, truncation=True, return_tensors="tf")
@@ -46,7 +46,7 @@ with h5py.File('../data/challenge3/post_train_features.hdf5', 'w') as f:
 
 X = D_test["Post"][~D_test["Post"].isna()].to_list()
 batch = len(X)//10000
-with h5py.File('../data/challenge3/post_test_features.hdf5', 'w') as f:
+with h5py.File('data/challenge3/post_test_features.hdf5', 'w') as f:
     dset = f.create_dataset("Dataset", (len(X), 768))
     for t in range(len(X)//batch):
         _tokens = tokenizer(X[t * batch: (t + 1) * batch], padding=True, truncation=True, return_tensors="tf")
@@ -58,7 +58,7 @@ with h5py.File('../data/challenge3/post_test_features.hdf5', 'w') as f:
 
 X = D_test["Body"][~D_test["Body"].isna()].to_list()
 batch = len(X)//10000
-with h5py.File('../data/challenge3/body_test_features.hdf5', 'w') as f:
+with h5py.File('data/challenge3/body_test_features.hdf5', 'w') as f:
     dset = f.create_dataset("Dataset", (len(X), 768))
     for t in range(len(X)//batch):
         _tokens = tokenizer(X[t * batch: (t + 1) * batch], padding=True, truncation=True, return_tensors="tf")
